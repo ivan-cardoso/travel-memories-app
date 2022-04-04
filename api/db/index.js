@@ -1,0 +1,10 @@
+const mongoose = require("mongoose")
+
+const URI = "mongodb+srv://travel-momories-app:travel-memories-app@cluster0.bcrsa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
+mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log("Connected to the Cluster"))
+    .catch((err) => console.log("ERROR CONNECTING TO THE CLUSTER", err))
+
+
+module.exports = mongoose
