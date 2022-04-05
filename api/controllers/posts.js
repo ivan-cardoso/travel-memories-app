@@ -1,3 +1,4 @@
+const { default: mongoose } = require("mongoose")
 const {Posts} = require("../models/index")
 
 const getPosts = async (req, res) =>{
@@ -10,7 +11,29 @@ const getPosts = async (req, res) =>{
     }
 }
 
-const createPost = (req, res) =>{
-
+const createPost = async (req, res) =>{
+    const post = req.body
+    const newPost = new Posts(post)
+    try{
+        await newPost.save()
+        res.status(201).json(newPost)
+    }catch(err){
+        res.status(404).json({"ERR" : err})
+    }
 }
-module.exports = {getPosts, createPost}
+
+const updatePost = async (req, res)=>{
+    const {id : _id} = req.params
+    const body = req.body
+    if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send("No Id valid") // Verify if is a valid ID
+    try {
+        const postUpdate = await Posts.findByIdAndUpdate(_id, body, {new : true})
+        res.status(201).send(postUpdate)
+    } catch (error) {
+        res.status(500).send({"ERR" : error})
+    }
+    
+}
+
+
+module.exports = {getPosts, createPost, updatePost}
