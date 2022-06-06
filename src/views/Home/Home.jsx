@@ -1,5 +1,6 @@
-import {React,  useEffect } from 'react';
+import { React, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
+import PostCard from '../../components/PostCard/PostCard';
 import { getAllPosts } from '../../store/actions/posts'
 
 const Home = () => {
@@ -13,8 +14,15 @@ const Home = () => {
 
   return (
     <>
-        <h1>HOME</h1>
-        {console.log('POSTS', posts)}
+      <h1>HOME</h1>
+      {posts && posts.map((e) => {
+        return (
+          <div key={e._id}>
+            <PostCard data={e} />
+          </div>
+        )
+      })}
+      {console.log('POSTS', posts)}
     </>
   )
 }
