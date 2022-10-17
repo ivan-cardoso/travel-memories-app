@@ -7,6 +7,7 @@ const PostCard = ({data}) => {
     const Card = styled.div`
         background : red
     `
+    
   return (
     <Card>
         <div>
