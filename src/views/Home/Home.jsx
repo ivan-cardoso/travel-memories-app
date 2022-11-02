@@ -15,13 +15,15 @@ const Home = () => {
   return (
     <>
       <h1>HOME</h1>
-      {posts && posts.map((e) => {
+      {posts ? posts.map((e) => {
         return (
           <div key={e._id}>
             <PostCard data={e} />
           </div>
         )
-      })}
+      })
+      : <>Cargando...</>
+    }
       {console.log('POSTS', posts)}
     </>
   )
