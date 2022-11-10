@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const postSchema = mongoose.Schema({
     "title" : String, //String is shorthand for {type : String}
     "message" : String,
-    "creator" : String,
+    "creatorId" : String,
     "tags" : [String],
     "selectedFile" : String,
     "createdAt" : {
