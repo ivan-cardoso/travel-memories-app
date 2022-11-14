@@ -45,5 +45,16 @@ const findPostById = async (req, res) => {
     }
 }
 
+const findPostByUserId = async (req, res) =>{
+    const {id} = req.params
+    // if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No Id valid')
+    try {
+        const posts = await Posts.find({'creatorId' : id})
+        res.status(200).send(posts)
+    } catch (err) {
+        res.status(500).json({'ERR' : err})
+    }
+}
 
-module.exports = { getPosts, createPost, updatePost, findPostById }
+
+module.exports = { getPosts, createPost, updatePost, findPostById, findPostByUserId }

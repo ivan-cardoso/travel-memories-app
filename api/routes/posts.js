@@ -7,5 +7,6 @@ router.get("/", controllers.getPosts)
 router.post("/", controllers.createPost)
 router.get("/:id", controllers.findPostById)
 router.patch("/:id", controllers.updatePost)
+router.get("/user/:id", controllers.findPostByUserId)
 
 module.exports = router
