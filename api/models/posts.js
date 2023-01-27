@@ -5,7 +5,11 @@ const postSchema = mongoose.Schema({
     "message" : String,
     "creatorId" : String,
     "tags" : [String],
-    "selectedFile" : String,
+    // "selectedFile" : {
+    //     data : Buffer,
+    //     contentType : String
+    // },
+    "selectedFile": String,
     "createdAt" : {
         type : Date,
         default : new Date()
@@ -15,3 +19,12 @@ const postSchema = mongoose.Schema({
 const Posts = mongoose.model("Posts", postSchema)
 
 module.exports = Posts
+
+
+// {
+//     "title" : "Travel to Rome",
+//     "message" : "Great Experience",
+//     "creatorId" : "63cab7287daab37974d5ad6c",
+//     "tags" : ["italy", "roma", "food"],
+//     "selectedFile" : ""
+// }

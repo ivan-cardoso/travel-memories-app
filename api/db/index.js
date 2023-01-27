@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
+require('dotenv').config()
 
-const URI = "mongodb+srv://travel-momories-app:travel-memories-app@cluster0.bcrsa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const URI = `mongodb+srv://travel-momories-app:${process.env.URI_PASSWORD}@cluster0.bcrsa.mongodb.net/?retryWrites=true&w=majority`
 
 mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("Connected to the Cluster"))
