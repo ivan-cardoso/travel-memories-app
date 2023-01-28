@@ -4,12 +4,6 @@ const morgan = require("morgan")
 const {connection} = require("./db")
 const routes = require("./routes")
 
-
-// const dotenv = require('dotenv').config()
-
-// const URI_PASSWORD = process.env.URI_PASSWORD
-
-
 const app = express()
 
 app.use(morgan("dev"))
@@ -27,5 +21,3 @@ connection.once("open", ()=>{
 })
 
 connection.set("useFindAndModify", false) // Hide deprecated warnings
-
-// console.log('PROCESS ENV', dotenv.parsed.URI_PASSWORD) // remove this after you've confirmed it is working
