@@ -9,3 +9,12 @@ export const createUser = createAsyncThunk('CREATE_USER', async (values) => {
         console.log('ERR', error)
     }
 })
+
+export const loginUser = createAsyncThunk('LOGIN_USER', async (values)=> {
+    try {
+        const user = await Axios.post('api/user/signIn', values)
+        return user.data
+    } catch (error) {
+        console.log('ERR', error)
+    }
+}) 
