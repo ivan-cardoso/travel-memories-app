@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { createUser } from '../../store/actions/user'
-
+import { createUser, googleRegister } from '../../store/actions/user'
+import { GoogleLogin } from '@react-oauth/google'
 
 const Register = () => {
 
@@ -19,6 +19,13 @@ const Register = () => {
         dispatch(createUser(values))
             .then(res => {
                 console.log("RES", res)
+            })
+    }
+
+    const handleOnSuccessGoogle = (res) => {
+        dispatch(googleRegister(res))
+            .then(data => {
+                console.log('RES', data)
             })
     }
 
@@ -41,6 +48,10 @@ const Register = () => {
 
                 <button type='submit'>Register</button>
             </form>
+            <GoogleLogin
+                onSuccess={(res) => handleOnSuccessGoogle(res)}
+                onError={() => console.log('SIGN IN GOOGLE FAILED')}
+            />
         </>
     )
 }
