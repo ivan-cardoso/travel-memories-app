@@ -23,9 +23,9 @@ export const loginUser = createAsyncThunk('LOGIN_USER', async (values) => {
 export const googleRegister = createAsyncThunk('GOOGLE_REGISTER', async (values) => {
     const userGoogle = jwt_decode(values.credential)
     const { name, email } = userGoogle
-    console.log('USSER VALUES', userGoogle)
     try {
         const user = await Axios.post('api/user/googleSignUp', { name, email, 'password' : values.clientId })
+        console.log('REDUX', user.data)
         return user.data
     } catch (error) {
         console.log('ERR', error)
