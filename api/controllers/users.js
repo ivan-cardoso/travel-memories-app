@@ -49,7 +49,7 @@ const signUp = async (req, res) => {
 
 }
 
-const googleSignUp = async (req, res) => {
+const googleAuth = async (req, res) => {
     const { name, email, password } = req.body
 
     try {
@@ -92,4 +92,4 @@ const allUsers = async (req, res) => {
     }
 }
 
-module.exports = { signIn, signUp, allUsers, googleSignUp }
+module.exports = { signIn, signUp, allUsers, googleAuth }

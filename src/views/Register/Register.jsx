@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { createUser, googleRegister } from '../../store/actions/user'
+import { createUser, googleAuth } from '../../store/actions/user'
 import { GoogleLogin } from '@react-oauth/google'
 
 const Register = () => {
@@ -23,7 +23,7 @@ const Register = () => {
     }
 
     const handleOnSuccessGoogle = (res) => {
-        dispatch(googleRegister(res))
+        dispatch(googleAuth(res))
             .then(data => {
                 console.log('RES', data)
             })
