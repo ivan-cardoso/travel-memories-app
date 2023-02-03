@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-// import {userReducer} from './reducers/user'
+import userReducer from './reducers/user'
 import {postsReducer} from './reducers/posts'
 
 const store = configureStore({
@@ -7,7 +7,7 @@ const store = configureStore({
         serializableCheck : false
     }),
     reducer : {
-        // user : userReducer,
+        user : userReducer,
         posts : postsReducer
     }
 })

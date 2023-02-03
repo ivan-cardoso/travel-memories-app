@@ -1,5 +1,8 @@
 const { default: mongoose } = require("mongoose")
 const { Posts } = require("../models/index")
+const fs = require('fs')
+const path = require('path');
+
 
 const getPosts = async (req, res) => {
     console.log("POST", Posts)
@@ -45,14 +48,14 @@ const findPostById = async (req, res) => {
     }
 }
 
-const findPostByUserId = async (req, res) =>{
-    const {id} = req.params
-    // if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No Id valid')
+const findPostByUserId = async (req, res) => {
+    const { id } = req.params
+    //  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No Id valid')
     try {
-        const posts = await Posts.find({'creatorId' : id})
+        const posts = await Posts.find({ 'creatorId': id })
         res.status(200).send(posts)
     } catch (err) {
-        res.status(500).json({'ERR' : err})
+        res.status(500).json({ 'ERR': err })
     }
 }
 
