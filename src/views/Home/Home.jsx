@@ -24,7 +24,6 @@ const Home = () => {
       })
       : <>Cargando...</>
     }
-      {console.log('POSTS', posts)}
     </>
   )
 }
