@@ -4,7 +4,7 @@ import Home from './views/Home/Home';
 import Login from "./views/Login/Login";
 import Register from "./views/Register/Register";
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux'
 import useStorage from './hooks/useStorage'
 import { setCrendentials } from './store/reducers/user';
 
@@ -13,16 +13,19 @@ const App = () => {
   const dispatch = useDispatch()
 
   const {isLogged} = useStorage()
-
-  useEffect(() => {
+  
+  useEffect( () => {
 
     const user = isLogged()
+
+    console.log('USER', user)
+    // const {userInfo} = useSelector
 
     if(user) dispatch(setCrendentials(user))
 
     // console.log('USER APP', user)
-    dispatch(setCrendentials())
-  });
+    // dispatch(setCrendentials())
+  }, [dispatch]);
 
   return (
     <>

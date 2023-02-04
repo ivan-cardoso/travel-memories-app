@@ -27,7 +27,7 @@ const userSlice = createSlice({
             state.error = null
         },
         setCrendentials: (state, { payload }) => {
-            state.userInfo = {'email' : payload.user.email, 'id' : payload.user._id}
+            state.userInfo = {'email' : payload.user.email, 'id' : payload.user.id}
         }
     },
     extraReducers: {
