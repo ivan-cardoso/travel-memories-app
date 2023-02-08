@@ -15,14 +15,20 @@ module.exports = {
         '3xl': '1900px',
       },
       'colors': {
-        'light': '#fff8fa'
+        'primary_orange' : "#ff7756",
+        'light': '#edf1fb',
+        'primary_blue' : "#3a5adf",
+        'dark_blue' : "#001438",
+        'variant_blue' : "#162c4c",
+        // 5e14d6 - PURPLE
       },
       spacing: {
         'container': '6rem',
       },
       fontFamily: {
-        'heading': "'Inter', sans-serif;",
+        'title': "'Inter', sans-serif;",
         'body': "'Poppins', sans-serif;",
+        'heading': "'Montserrat', sans-serif;",
       },
       boxShadow: {
         '3xl': '0 5px 50px -12px rgba(0, 0, 0, 0.3)',
@@ -32,3 +38,14 @@ module.exports = {
   },
   plugins: [],
 }
+
+
+/* 
+  COLORS
+    ORANGE - ff7756
+    LIGHT - edf1fb
+    PRIMARY BLUE - 3a5adf
+    DARK BLUE - 001438
+    VARIANT BLUE - 162c4c
+ 
+ */
