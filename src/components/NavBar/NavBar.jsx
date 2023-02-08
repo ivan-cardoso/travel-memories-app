@@ -13,9 +13,9 @@ const NavBar = () => {
   console.log('USER INFO', userInfo)
 
   return (
-    <div className=' bg-light flex w-full h-20 px-10 sm:px-16 md:px-24 lg:px-28 2xl:px-36 3xl:px-48 py-10 items-center justify-between'>
+    <div className='absolute top-0 left-0  bg-[#585858]/20 z-20 flex w-full h-28 px-10 sm:px-16 md:px-24 lg:px-28 2xl:px-36 3xl:px-48 py-10 items-center justify-between'>
       <Link to={'/'}>
-        <h1>TMA</h1>
+        <h1 className='font-bold text-3xl text-white'>TMA</h1>
       </Link>
       {!userInfo ?
         <div className='flex gap-x-5'>

@@ -28,6 +28,7 @@ module.exports = {
       fontFamily: {
         'title': "'Inter', sans-serif;",
         'body': "'Poppins', sans-serif;",
+        'heading': "'Montserrat', sans-serif;",
       },
       boxShadow: {
         '3xl': '0 5px 50px -12px rgba(0, 0, 0, 0.3)',
