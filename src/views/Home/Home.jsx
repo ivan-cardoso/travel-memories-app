@@ -9,6 +9,7 @@ import { Pagination } from "swiper";
 
 import PostCard from '../../components/PostCard/PostCard';
 import { getAllPosts } from '../../store/actions/posts'
+import Carousel from '../../components/Carousel/Carousel';
 
 const Home = () => {
 
@@ -22,36 +23,23 @@ const Home = () => {
   return (
     <>
       <div className='
-        px-10 sm:px-16 md:px-24 py-10 w-full bg-red-300
+         py-10 w-full flex flex-col gap-y-10
         '>
+        <div className=''>
+          <h2 className='px-10 sm:px-16 md:px-24 lg:px-28 2xl:px-36 3xl:px-48 font-title text-xl md:text-2xl 2xl:text-3xl 3xl:text-4xl mb-5'>Lastest Memories</h2>
+          {posts ?
+            <Carousel data={posts} />
+            : <>Cargando...</>
+          }
+        </div>
 
-        {posts ?
-
-          <Swiper
-            slidesPerView={"auto"}
-            spaceBetween={30}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Pagination]}
-            className="mySwiper"
-          >
-            {posts.map((e) => {
-              return (
-                <SwiperSlide style={{ 'width': '18rem' }} key={e._id}>
-                  <PostCard data={e} />
-                </SwiperSlide>
-              )
-            })}
-            <SwiperSlide style={{ 'width': '5rem', 'height': 'auto', 'display': 'flex' }} className='flex items-center justify-center'>
-              <p className='bg-white'>
-                VER MAS
-              </p>
-            </SwiperSlide>
-          </Swiper>
-
-          : <>Cargando...</>
-        }
+        <div>
+          <h2 className='px-10 sm:px-16 md:px-24 lg:px-28 2xl:px-36 3xl:px-48 font-title text-xl md:text-2xl 2xl:text-3xl 3xl:text-4xl mb-10'>Popular Memories</h2>
+          {posts ?
+            <Carousel data={posts} />
+            : <>Cargando...</>
+          }
+        </div>
       </div>
     </>
   )

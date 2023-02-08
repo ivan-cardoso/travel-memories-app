@@ -11,13 +11,13 @@ const NavBar = () => {
   console.log('USER INFO', userInfo)
 
   return (
-    <div className=' bg-light flex w-full h-20 px-24 py-10 items-center justify-between'>
+    <div className=' bg-light flex w-full h-20 px-10 sm:px-16 md:px-24 lg:px-28 2xl:px-36 3xl:px-48 py-10 items-center justify-between'>
       <Link to={'/'}>
         <h1>TMA</h1>
       </Link>
       {!userInfo ?
         <div className='flex gap-x-5'>
-          <Link to={'/login'}>Sign In</Link>
+          <Link to={'/login'}>Log In</Link>
           <Link to={'/register'}>Sign Up </Link>
         </div>
         :
