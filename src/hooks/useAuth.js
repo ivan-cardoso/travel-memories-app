@@ -2,6 +2,8 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { googleAuth } from "../store/actions/user"
+import { logout } from '../store/reducers/user';
+
 
 const useAuth = () => {
     const [values, setValues] = useState({})
@@ -30,10 +32,16 @@ const useAuth = () => {
             })
     }
 
+    const handleLogout = () => {
+        dispatch(logout())
+        navigate(0)
+    }
+
     return {
         handleChange,
         handleSubmit,
-        handleOnSuccessGoogle
+        handleOnSuccessGoogle,
+        handleLogout
     }
 }
 
