@@ -5,7 +5,7 @@ import jwt_decode from "jwt-decode";
 export const createUser = createAsyncThunk('CREATE_USER', async (values) => {
     try {
         const user = await Axios.post('/api/user/signUp', values)
-        localStorage.setItem('userToken', user.data.token)
+        // localStorage.setItem('userToken', user.data.token)
         return user.data
     } catch (error) {
         console.log('ERR', error)

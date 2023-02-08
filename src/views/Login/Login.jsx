@@ -1,43 +1,17 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { loginUser, googleAuth } from '../../store/actions/user'
+import React from 'react'
 import { GoogleLogin } from '@react-oauth/google'
+import useAuth from '../../hooks/useAuth'
+import { loginUser } from '../../store/actions/user'
 
 const Login = () => {
 
-  const dispatch = useDispatch()
-
-  const navigate = useNavigate()
-
-  const [values, setValues] = useState({})
-
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setValues({ ...values, [name]: value })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    dispatch(loginUser(values))
-      // .then(res => {
-      //   console.log("RES", res)
-      //   navigate('/')
-      // })
-  }
-
-  const handleOnSuccessGoogle = (res) => {
-    dispatch(googleAuth(res))
-      .then(data => {
-        console.log('RES', data)
-      })
-  }
+  const { handleSubmit, handleChange, handleOnSuccessGoogle} = useAuth()
 
   return (
     <>
       <div> Login</div>
       <form
-        onSubmit={handleSubmit}
+        onSubmit={(e)=>handleSubmit(e, loginUser)}
         onChange={handleChange}
         action=""
       >
