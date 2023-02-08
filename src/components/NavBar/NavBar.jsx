@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import useAuth from '../../hooks/useAuth'
 
+import Button from '../Buttons/Button'
+
 const NavBar = () => {
 
   const { userInfo } = useSelector((state) => state.user)
@@ -17,8 +19,12 @@ const NavBar = () => {
       </Link>
       {!userInfo ?
         <div className='flex gap-x-5'>
-          <Link to={'/login'}>Log In</Link>
-          <Link to={'/register'}>Sign Up </Link>
+          <Link to={'/login'}>
+            <Button variant={'secondary'}>Log In</Button>
+          </Link>
+          <Link to={'/register'}>
+            <Button variant={'primary'}>Sign Up</Button>
+          </Link>
         </div>
         :
         <div onClick={handleLogout}>
