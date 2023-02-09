@@ -15,11 +15,13 @@ module.exports = {
         '3xl': '1900px',
       },
       'colors': {
-        'primary_orange' : "#ff7756",
+        'primary_orange': "#ff7756",
         'light': '#edf1fb',
-        'primary_blue' : "#3a5adf",
-        'dark_blue' : "#001438",
-        'variant_blue' : "#162c4c",
+        'variant_light' : "#505257",
+        'primary_blue': "#3a5adf",
+        'dark_blue': "#001438",
+        'variant_blue': "#162c4c",
+        'primary_purple' : '#5e14d6'
         // 5e14d6 - PURPLE
       },
       spacing: {
@@ -32,13 +34,15 @@ module.exports = {
       },
       boxShadow: {
         '3xl': '0 5px 50px -12px rgba(0, 0, 0, 0.3)',
-        'variantShadow' : '0 -4px 12px 1px rgb(0 0 0 / 25%)'
+        'variantShadow': '0 -4px 12px 1px rgb(0 0 0 / 25%)'
+      },
+      backgroundImage: {
+        'hero_mobile': "url('../src/images/hero/hero1.jpg')",
       }
     },
-  },
-  plugins: [],
+    plugins: [],
+  }
 }
-
 
 /* 
   COLORS
@@ -49,3 +53,5 @@ module.exports = {
     VARIANT BLUE - 162c4c
  
  */
+
+    

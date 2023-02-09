@@ -1,20 +1,20 @@
 const express = require("express")
 const router = express.Router()
-const multer = require('multer')
+// const multer = require('multer')
 
 
 const controllers = require("../controllers/posts")
 
-const storage = multer.diskStorage({
-    destination : (req, file, cb) =>{
-        cb(null, 'photos')
-    },
-    filename : (req, file, cb) => {
-        cb(null, file.filename + '-' + Date.now())
-    }
-})
+// const storage = multer.diskStorage({
+//     destination : (req, file, cb) =>{
+//         cb(null, 'photos')
+//     },
+//     filename : (req, file, cb) => {
+//         cb(null, file.filename + '-' + Date.now())
+//     }
+// })
 
-const upload = multer({storage})
+// const upload = multer({storage})
 
 router.get("/", controllers.getPosts)
 router.post("/",  controllers.createPost)
