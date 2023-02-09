@@ -1,18 +1,15 @@
 import { React, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
-import { Pagination } from "swiper";
 
-import PostCard from '../../components/PostCard/PostCard';
 import { getAllPosts } from '../../store/actions/posts'
 import Carousel from '../../components/Carousel/Carousel';
 
-import hero1 from '../../images/hero/hero1.jpg'
-import hero2 from '../../images/hero/hero2.jpg'
+// import hero1 from '../../images/hero/hero1.jpg'
+// import hero2 from '../../images/hero/hero2.jpg'
 import { Link } from 'react-router-dom';
 import Button from '../../components/Buttons/Button';
 

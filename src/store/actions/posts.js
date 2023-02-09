@@ -9,3 +9,13 @@ export const getAllPosts = createAsyncThunk("GET_POSTS", async ()=>{
         throw error
     }
 })
+
+export const getSinglePost = createAsyncThunk("GET_SINGLE_POST", async (id)=>{
+    console.log("id action" , id)
+    try {
+        const posts = await Axios.get(`/api/posts/${id}`)
+        return posts.data
+    } catch (error) {
+        throw error
+    }
+})
