@@ -12,6 +12,7 @@ import Carousel from '../../components/Carousel/Carousel';
 // import hero2 from '../../images/hero/hero2.jpg'
 import { Link } from 'react-router-dom';
 import Button from '../../components/Buttons/Button';
+import NavBar from '../../components/NavBar/NavBar';
 
 const Home = () => {
 
@@ -24,6 +25,7 @@ const Home = () => {
 
   return (
     <>
+          <NavBar />
       <div className='
           w-full flex flex-col gap-y-10
         '>
