@@ -32,12 +32,14 @@ const Home = () => {
         '>
 
         <div className='relative'>
-          <img src={hero1} className={'hidden sm:flex'} alt="HERO 1 DESK" />
-          <img src={hero2} className={'sm:hidden'} alt="HERO 2 MOBILE/ " />
-          <div className="absolute top-0 bg-[#272727]/30 p-5  h-full w-full flex flex-col gap-y-4 items-center justify-center text-center">
-            <h2 className='text-6xl font-extrabold leading-snug font-body text-white'>
-              EXPLORE BEAUTY OF JOURNEY
+          {/* <img src={hero1} className={'hidden md:flex'} alt="HERO 1 DESK" />
+          <img src={hero2} className={'md:hidden'} alt="HERO 2 MOBILE/ " /> */}
+          <div className='h-screen w-full bg-hero_mobile bg-center'></div>
+          <div className="absolute top-0 bg-[#272727]/50 px-8 py-10  h-full w-full flex flex-col gap-y-6 items-center justify-end">
+            <h2 className='text-4xl font-extrabold leading-snug font-body text-white'>
+              Explore the Beauty of the world with us
             </h2>
+            <p className='font-heading font-bold text-white'>If you like to travel, this is your place! Share your experiences to the world! </p>
             <Link className='' to={'/'}>
               <Button variant={'action'}>Explore</Button>
             </Link>
@@ -47,7 +49,7 @@ const Home = () => {
         <div className=''>
           <h2 className='px-10 sm:px-16 md:px-24 lg:px-28 2xl:px-36 3xl:px-48 font-title text-xl md:text-2xl 2xl:text-3xl 3xl:text-4xl mb-5'>Lastest Memories</h2>
           {posts ?
-            <Carousel data={posts} />
+            <Carousel data={posts} optionalText={'See All'} optionalRedirect={'/library'} />
             : <>Cargando...</>
           }
         </div>
@@ -55,7 +57,7 @@ const Home = () => {
         <div>
           <h2 className='px-10 sm:px-16 md:px-24 lg:px-28 2xl:px-36 3xl:px-48 font-title text-xl md:text-2xl 2xl:text-3xl 3xl:text-4xl mb-10'>Popular Memories</h2>
           {posts ?
-            <Carousel data={posts} />
+            <Carousel data={posts} optionalText={'See All'} optionalRedirect={'/library'}  />
             : <>Cargando...</>
           }
         </div>
