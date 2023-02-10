@@ -3,6 +3,9 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  plugins: [
+    require('@tailwindcss/line-clamp')
+  ],
   theme: {
     extend: {
       screens: {
@@ -17,11 +20,11 @@ module.exports = {
       'colors': {
         'primary_orange': "#ff7756",
         'light': '#edf1fb',
-        'variant_light' : "#505257",
+        'variant_light': "#505257",
         'primary_blue': "#3a5adf",
         'dark_blue': "#001438",
         'variant_blue': "#162c4c",
-        'primary_purple' : '#5e14d6'
+        'primary_purple': '#5e14d6'
         // 5e14d6 - PURPLE
       },
       spacing: {
@@ -40,7 +43,7 @@ module.exports = {
         'hero_mobile': "url('../src/images/hero/hero1.jpg')",
       }
     },
-    plugins: [],
+
   }
 }
 
@@ -54,4 +57,3 @@ module.exports = {
  
  */
 
-    

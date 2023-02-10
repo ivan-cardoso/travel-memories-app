@@ -14,11 +14,15 @@ const SingleMemory = () => {
     console.log("idparam", id)
 
     useEffect(() => {
-        const getSingleMemory = async () => {
-            const post = await dispatch(getSinglePost(id))
-            setMemory(post.payload)
-        }
-        getSingleMemory()
+        // const getSingleMemory = async () => {
+        //     const post = await 
+        //     setMemory(post.payload)
+        // }
+        dispatch(getSinglePost(id))
+            .then(res =>{
+                setMemory(res.payload)
+            })
+        // getSingleMemory()
     }, []);
 
 
