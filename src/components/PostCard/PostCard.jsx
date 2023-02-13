@@ -1,3 +1,4 @@
+import moment from 'moment'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -11,7 +12,7 @@ const PostCard = ({ data }) => {
         <p className='font-body font-normal text-base text-slate-800 line-clamp-3'>{data.message}</p>
         <div className='flex items-center justify-between'>
           <p className='font-body font-normal text-variant_light  text-sm'>{data.creator.creatorName}</p>
-          <p className='font-body font-normal text-variant_light  text-sm'>Jun 27, 2022</p>
+          <p className='font-body font-normal text-variant_light  text-sm'>{moment(data.createdAt).format('D/MM/YYYY')}</p>
         </div>
         {console.log('data', data)}
       </div>

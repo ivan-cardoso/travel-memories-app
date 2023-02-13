@@ -1,3 +1,4 @@
+import moment from 'moment'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
@@ -43,7 +44,7 @@ const SingleMemory = () => {
                         <h2 className='font-title font-medium text-2xl'>{memory.title}</h2>
                         <div className="pt-2 flex items-center justify-between">
                             <p className='font-body font-bold text-primary_blue'>Ivan Cardoso</p>
-                            <p className='font-body font-bold text-variant_light'>22 FEB, 2023</p>
+                            <p className='font-body font-bold text-variant_light'>{moment(memory.createdAt).format('D/MM/YYYY')}</p>
                             {/* {memory.createdAt} */}
                             {/* memory.creatorId */}
                         </div>
