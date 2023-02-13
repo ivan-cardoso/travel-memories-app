@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import BackButton from '../../components/Buttons/BackButton'
+import Spinner from '../../components/Spinner/Spinner'
 
 import { getSinglePost } from '../../store/actions/posts'
 
@@ -20,18 +21,18 @@ const SingleMemory = () => {
         //     setMemory(post.payload)
         // }
         dispatch(getSinglePost(id))
-            .then(res =>{
+            .then(res => {
                 setMemory(res.payload)
             })
         // getSingleMemory()
-    }, []);
+    }, [dispatch, id]);
 
 
     return (
         <>
-            {memory ?
-                <div className='relative'>
-                    {console.log("SINGLE MEMORY", memory)}
+            {console.log("SINGLE MEMORY", memory)}
+            {memory._id ?
+                <div className='relative bg-light'>
                     <div
                         style={{ backgroundImage: `url(${memory.selectedFile})` }}
                         className={`w-full h-[45vh] bg-center bg-no-repeat bg-cover`}>
@@ -43,7 +44,7 @@ const SingleMemory = () => {
                     <div className='px-10 sm:px-16 md:px-24 lg:px-28 2xl:px-36 3xl:px-48 py-8 '>
                         <h2 className='font-title font-medium text-2xl'>{memory.title}</h2>
                         <div className="pt-2 flex items-center justify-between">
-                            <p className='font-body font-bold text-primary_blue'>Ivan Cardoso</p>
+                            <p className='font-body font-bold text-primary_blue'>{memory.creator.creatorName}</p>
                             <p className='font-body font-bold text-variant_light'>{moment(memory.createdAt).format('D/MM/YYYY')}</p>
                             {/* {memory.createdAt} */}
                             {/* memory.creatorId */}
@@ -51,18 +52,21 @@ const SingleMemory = () => {
                         <div className='overflow-x-auto mt-6'>
                             <p className='font-body text-dark_blue whitespace'>
                                 {memory.message}
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eos et ullam debitis alias nostrum. Cum cumque perspiciatis perferendis provident dolor consectetur aliquam ratione excepturi, incidunt quisquam, nostrum porro exercitationem.
+                                {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eos et ullam debitis alias nostrum. Cum cumque perspiciatis perferendis provident dolor consectetur aliquam ratione excepturi, incidunt quisquam, nostrum porro exercitationem.
                                 <br />
                                 <br />
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eos et ullam debitis alias nostrum. Cum cumque perspiciatis perferendis provident dolor consectetur aliquam ratione excepturi, incidunt quisquam, nostrum porro exercitationem.
                                 <br />
                                 <br />
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eos et ullam debitis alias nostrum. Cum cumque perspiciatis perferendis provident dolor consectetur aliquam ratione excepturi, incidunt quisquam, nostrum porro exercitationem.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eos et ullam debitis alias nostrum. Cum cumque perspiciatis perferendis provident dolor consectetur aliquam ratione excepturi, incidunt quisquam, nostrum porro exercitationem. */}
                             </p>
                         </div>
                     </div>
                 </div>
-                : <>Cargando...</>
+                : 
+                <div className='h-screen w-full bg-light flex items-center justify-center'>
+                    <Spinner/>
+                </div>
             }
         </>
     )
