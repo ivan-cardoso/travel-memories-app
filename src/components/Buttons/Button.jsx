@@ -1,9 +1,10 @@
 import React from 'react'
 
-const Button = ({children, variant}) => {
+const Button = ({ children, variant, type }) => {
   return (
-    <button 
-        className={`
+    <button
+      type={type}
+      className={`
             font-title text-base font-medium  flex items-center justify-center rounded-full shadow-md
             border-2 transition duration-200 ease-linear hover:shadow-lg
             px-6 h-12
@@ -15,7 +16,7 @@ const Button = ({children, variant}) => {
             ${variant === 'transparent' && 'bg-transparent text-white border-white hover:bg-white hover:text-black hover:shadow-white/50'}
             ${variant === 'action' && 'bg-primary_blue text-white border-primary_blue hover:shadow-primary_blue/50'}
         `}>
-        {children}
+      {children}
     </button>
   )
 }

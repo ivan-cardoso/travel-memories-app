@@ -16,8 +16,9 @@ const useAuth = () => {
         setValues({ ...values, [name]: value })
     }
 
-    const handleSubmit = (e, action) => {
-        e.preventDefault()
+    const handleSubmit = (values, action) => {
+        // e.preventDefault()
+        console.log('values', values)
         dispatch(action(values))
             .then(res => {
                 console.log("RES", res)
