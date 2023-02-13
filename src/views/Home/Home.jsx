@@ -12,6 +12,10 @@ import { Link } from 'react-router-dom';
 import Button from '../../components/Buttons/Button';
 import NavBar from '../../components/NavBar/NavBar';
 
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import PostCard from '../../components/PostCard/PostCard';
+
 const Home = () => {
 
   const dispatch = useDispatch()
@@ -23,7 +27,7 @@ const Home = () => {
 
   return (
     <>
-          <NavBar />
+      <NavBar />
       <div className='
           w-full flex flex-col gap-y-10
         '>
@@ -43,17 +47,25 @@ const Home = () => {
 
         <div className=''>
           <h2 className='px-10 sm:px-16 md:px-24 lg:px-28 2xl:px-36 3xl:px-48 font-title text-xl md:text-2xl 2xl:text-3xl 3xl:text-4xl mb-5'>Lastest Memories</h2>
-          {posts ?
+
+          {posts.length ?
             <Carousel data={posts} optionalText={'See All'} optionalRedirect={'/library'} />
-            : <>Cargando...</>
+            :
+            <div className='px-10 sm:px-16 md:px-24 lg:px-28 2xl:px-36 3xl:px-48 py-5'>
+              <PostCard loading={true} />
+            </div>
           }
+
         </div>
 
         <div>
           <h2 className='px-10 sm:px-16 md:px-24 lg:px-28 2xl:px-36 3xl:px-48 font-title text-xl md:text-2xl 2xl:text-3xl 3xl:text-4xl mb-10'>Popular Memories</h2>
-          {posts ?
-            <Carousel data={posts} optionalText={'See All'} optionalRedirect={'/library'}  />
-            : <>Cargando...</>
+          {posts.length ?
+            <Carousel data={posts} optionalText={'See All'} optionalRedirect={'/library'} />
+            :
+            <div className='px-10 sm:px-16 md:px-24 lg:px-28 2xl:px-36 3xl:px-48 py-5'>
+              <PostCard loading={true} />
+            </div>
           }
         </div>
       </div>
