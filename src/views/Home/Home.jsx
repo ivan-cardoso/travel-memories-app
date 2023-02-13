@@ -8,8 +8,6 @@ import "swiper/css/pagination";
 import { getAllPosts } from '../../store/actions/posts'
 import Carousel from '../../components/Carousel/Carousel';
 
-// import hero1 from '../../images/hero/hero1.jpg'
-// import hero2 from '../../images/hero/hero2.jpg'
 import { Link } from 'react-router-dom';
 import Button from '../../components/Buttons/Button';
 import NavBar from '../../components/NavBar/NavBar';
@@ -31,8 +29,6 @@ const Home = () => {
         '>
 
         <div className='relative'>
-          {/* <img src={hero1} className={'hidden md:flex'} alt="HERO 1 DESK" />
-          <img src={hero2} className={'md:hidden'} alt="HERO 2 MOBILE/ " /> */}
           <div className='h-screen w-full bg-hero_mobile bg-center'></div>
           <div className="absolute top-0 bg-[#272727]/50 px-8 py-10  h-full w-full flex flex-col gap-y-6 items-center justify-end">
             <h2 className='text-4xl font-extrabold leading-snug font-body text-white'>
