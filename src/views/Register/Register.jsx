@@ -3,7 +3,6 @@ import { createUser } from '../../store/actions/user'
 import { GoogleLogin } from '@react-oauth/google'
 import useAuth from '../../hooks/useAuth'
 
-import * as Yup from 'yup'
 import { ErrorMessage, Form, Formik } from 'formik'
 
 import TextInput from '../../components/Inputs/TextInput'
@@ -12,7 +11,10 @@ import Button from '../../components/Buttons/Button'
 import Spinner from '../../components/Spinner/Spinner'
 import { useSelector } from 'react-redux'
 
-import heroRegister from '../../images/hero/hero2.jpg'
+import { registerValidation } from '../../utils/validations'
+import { Link } from 'react-router-dom'
+
+import { ReactComponent as TravelingIllustration } from '../../images/illustrations/trip.svg'
 
 
 const Register = () => {
@@ -20,33 +22,15 @@ const Register = () => {
 
     const { loading } = useSelector(state => state.user)
 
-    const validate = Yup.object({
-        name: Yup.string().required("*Required"),
-        email: Yup.string()
-            .email("*Enter a valid email")
-            .required("*Required"),
-        description: Yup.string().required("*Required"),
-        password: Yup.string()
-            .required("*Required")
-            .min(8, "*At least 8 characters ")
-            .matches(
-                /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#%])(?=.{8,})/,
-                "*Capital letter, number, and special character."
-            ),
-        // password2: Yup.string()
-        //     .required("*Campo requerido")
-        //     .oneOf([Yup.ref("password"), null], "*Las contraseñas deben coincidir"),
-    });
-
     return (
         <>
             <div className='md:flex w-full'>
 
                 {/* <img src="" className='hidden md:block md:w-1/2 bg-red-300' alt="" /> */}
                 <div
-                    style={{ backgroundImage: `url(${heroRegister})` }}
-                    className="hidden md:block md:w-1/2 bg-cover bg-center bg-no-repeat" >
-
+                    // style={{ backgroundImage: `url(${heroRegister})` }}
+                    className="hidden md:flex md:items-center md:justify-center md:bg-primary_blue md:w-1/2 " >
+                    {/* <TravelingIllustration className='w-[28rem] 2xl:w-[34rem] 3xl:w-[40rem]' /> */}
                 </div>
                 <Formik
                     className=""
@@ -56,7 +40,7 @@ const Register = () => {
                         "description": "",
                         "password": "",
                     }}
-                    validationSchema={validate}
+                    validationSchema={registerValidation}
                     onSubmit={(e) => {
                         handleSubmit(e, createUser)
                     }}
@@ -64,15 +48,16 @@ const Register = () => {
                     {({ errors }) => (
 
                         <div className='
-                            flex flex-col bg-white
+                            flex flex-col bg-light
                             px-10 sm:px-16 lg:px-24 2xl:px-28 3xl:px-32
                             py-12 lg:py-12 2xl:py-20 3xl:py-28
                             w-full md:w-1/2
                             gap-y-1.5 2xl:gap-y-3 3xl:gap-y-5 
                             '>
-                            {/* <h2 className='font-title text-xl md:text-2xl 2xl:text-3xl 3xl:text-4xl mb-5'>
-                                Register
-                            </h2> */}
+                            <h2 className='text-center font-medium font-title text-xl md:text-3xl 2xl:text-4xl 3xl:text-5xl mb-5'>
+                                Create a TMA <br />
+                                account
+                            </h2>
                             <Form
                                 className='flex flex-col gap-y-6'
                             >
@@ -150,6 +135,8 @@ const Register = () => {
                                     onSuccess={(res) => handleOnSuccessGoogle(res)}
                                     onError={() => console.log('SIGN IN GOOGLE FAILED')}
                                 />
+                                <p className='mt-4 md:mt-2 font-body text-variant_light 2xl:text-xl'>Already have an account? <Link to={'/login'} className="underline text-primary_blue"> Log In </Link>
+                                </p>
                             </div>
                         </div>
                     )}
