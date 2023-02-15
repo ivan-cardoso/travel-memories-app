@@ -6,28 +6,21 @@ const TextArea = ({ label, placeholder, width, name, variant }) => {
         <div className={`flex flex-col ${width ?? 'w-full'}`}>
             <label
                 className={`
-                    font-subtitle  2xl:text-xl 3xl:text-2xl
-                    ${variant === 'app' ?
-                        'text-variantDark font-bold'
-                        : 'text-dark font-semibold '}
-                    `}
+                font-body 2xl:text-xl 3xl:text-2xl font-semibold text-slate-900`}
                 htmlFor={name}>
                 {label}
             </label>
             <Field
                 as="textarea"
-                
                 id={name}
                 placeholder={placeholder}
                 type="text"
                 name={name}
                 className={`
-                    text-base  text-variantDark transition duration-200 ease-in-out 
-                    h-36  2xl:h-36 3xl:h-42 rounded-lg px-2 py-1.5 resize-none	
+                    text-base  text-variant_light transition duration-200 ease-in-out font-body
+                    h-24  2xl:h-28 3xl:h-36 rounded-xl px-2 py-1.5 resize-none 2xl:px-4 3xl:px-6 
                     2xl:text-lg 3xl:text-xl
-                    ${variant === 'app' ?
-                        'bg-[#F3F3F3] focus:outline-primaryBlue '
-                        : 'border-2 border-primaryBlue  3xl:border-4 focus:outline-none  focus:border-primaryPink'}
+                    border-2 border-variant_light  3xl:border-4 focus:outline-none  focus:border-primary_blue
                 `}
             />
         </div>

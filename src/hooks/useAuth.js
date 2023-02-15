@@ -17,19 +17,16 @@ const useAuth = () => {
     }
 
     const handleSubmit = (values, action) => {
-        // e.preventDefault()
-        console.log('values', values)
         dispatch(action(values))
-            .then(res => {
-                console.log("RES", res)
+            .then(() => {
+                navigate('/')
             })
     }
 
     const handleOnSuccessGoogle = (res) => {
         dispatch(googleAuth(res))
-            .then(data => {
+            .then(() => {
                 navigate('/')
-                console.log('RES', data)
             })
     }
 

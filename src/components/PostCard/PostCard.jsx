@@ -40,7 +40,6 @@ const PostCard = ({ data, loading }) => {
               <p className='font-body font-normal text-variant_light  text-sm 2xl:text-base 3xl:text-lg'>{data.creator.creatorName}</p>
               <p className='font-body font-normal text-variant_light  text-sm 2xl:text-base 3xl:text-lg'>{moment(data.createdAt).format('D/MM/YYYY')}</p>
             </div>
-            {console.log('data', data)}
           </div>
         </Link>
       }
