@@ -22,12 +22,16 @@ const useAuth = () => {
         setIsLoading(true)
         setError(false)
         dispatch(action(values))
-            .then(() => {
-                redirect ? navigate(`/${redirect}`) : navigate(`/`)
+            .then((res) => {
+                if (!res.payload) {
+                    setError('*Invalid values')
+                } else {
+                    redirect ? navigate(`/${redirect}`) : navigate(`/`)
+                }
             })
             .catch(() => {
                 setIsLoading(false)
-                setError('User or password incorrect')
+                setError('*User or password incorrect')
             })
     }
 

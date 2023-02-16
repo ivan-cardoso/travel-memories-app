@@ -18,7 +18,7 @@ import { ReactComponent as TravelingIllustration } from '../../images/illustrati
 
 
 const Register = () => {
-    const { handleSubmit, handleOnSuccessGoogle } = useAuth()
+    const { handleSubmit, handleOnSuccessGoogle, error } = useAuth()
 
     const { loading } = useSelector(state => state.user)
 
@@ -110,7 +110,11 @@ const Register = () => {
                                     />
                                 </div>
 
-                                <div className='flex items-center justify-center'>
+                                <div className='flex items-center justify-center flex-col'>
+
+                                    {error &&
+                                        <p className='font-body text-primary_orange 2xl:text-xl mb-4'>{error}</p>
+                                    }
 
                                     {
                                         !loading ?

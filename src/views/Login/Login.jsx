@@ -85,11 +85,6 @@ const Login = () => {
 
                 <div className='flex items-center justify-center flex-col'>
 
-
-                  {/* <div className="flex items-center justify-center ">
-                    <Button type={'submit'} variant={'action'} >Login</Button>
-                  </div> */}
-
                   {error && 
                     <p className='font-body text-primary_orange 2xl:text-xl mb-4'>{error}</p>
                   }
