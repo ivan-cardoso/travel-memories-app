@@ -27,7 +27,6 @@ export const googleAuth = createAsyncThunk('GOOGLE_AUTH', async (values) => {
     const { name, email } = userGoogle
     try {
         const user = await Axios.post('api/user/googleAuth', { name, email, 'password': values.clientId })
-        console.log('REDUX', user.data)
         localStorage.setItem('userToken', user.data.token)
         return user.data
     } catch (error) {

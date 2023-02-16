@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { GoogleLogin } from '@react-oauth/google'
 import useAuth from '../../hooks/useAuth'
 import { loginUser } from '../../store/actions/user'
@@ -16,8 +16,7 @@ import { Link } from 'react-router-dom'
 
 const Login = () => {
 
-  const { handleSubmit, handleOnSuccessGoogle } = useAuth()
-
+  const { handleSubmit, handleOnSuccessGoogle, isLoading, setIsLoading, error } = useAuth()
   return (
     <>
 
@@ -38,6 +37,7 @@ const Login = () => {
           }}
           validationSchema={loginValidation}
           onSubmit={(e) => {
+            setIsLoading(true)
             handleSubmit(e, loginUser)
           }}
         >
@@ -83,14 +83,19 @@ const Login = () => {
                   />
                 </div>
 
-                <div className='flex items-center justify-center'>
+                <div className='flex items-center justify-center flex-col'>
 
 
-                  <div className="flex items-center justify-center ">
+                  {/* <div className="flex items-center justify-center ">
                     <Button type={'submit'} variant={'action'} >Login</Button>
-                  </div>
-                  {/* {
-                    !loading ?
+                  </div> */}
+
+                  {error && 
+                    <p className='font-body text-primary_orange 2xl:text-xl mb-4'>{error}</p>
+                  }
+
+                  {
+                    !isLoading ?
                       <div className="flex items-center justify-center ">
                         <Button type={'submit'} variant={'action'} >Login</Button>
                       </div>
@@ -99,7 +104,7 @@ const Login = () => {
                       <div className="flex items-center justify-center ">
                         <Spinner />
                       </div>
-                  } */}
+                  }
                 </div>
 
               </Form>

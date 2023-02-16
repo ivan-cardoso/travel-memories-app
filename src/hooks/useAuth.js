@@ -7,6 +7,8 @@ import { logout } from '../store/reducers/user';
 
 const useAuth = () => {
     const [values, setValues] = useState({})
+    const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState('')
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -16,10 +18,16 @@ const useAuth = () => {
         setValues({ ...values, [name]: value })
     }
 
-    const handleSubmit = (values, action) => {
+    const handleSubmit = (values, action, redirect) => {
+        setIsLoading(true)
+        setError(false)
         dispatch(action(values))
             .then(() => {
-                navigate('/')
+                redirect ? navigate(`/${redirect}`) : navigate(`/`)
+            })
+            .catch(() => {
+                setIsLoading(false)
+                setError('User or password incorrect')
             })
     }
 
@@ -39,7 +47,11 @@ const useAuth = () => {
         handleChange,
         handleSubmit,
         handleOnSuccessGoogle,
-        handleLogout
+        handleLogout,
+        isLoading,
+        setIsLoading,
+        error,
+        setError
     }
 }
 

@@ -42,7 +42,7 @@ const Register = () => {
                     }}
                     validationSchema={registerValidation}
                     onSubmit={(e) => {
-                        handleSubmit(e, createUser)
+                        handleSubmit(e, createUser, 'login')
                     }}
                 >
                     {({ errors }) => (
