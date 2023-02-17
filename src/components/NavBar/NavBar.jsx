@@ -10,8 +10,6 @@ const NavBar = () => {
   const { userInfo } = useSelector((state) => state.user)
   const { handleLogout } = useAuth()
 
-  console.log('USER INFO', userInfo)
-
   return (
     <div className='absolute top-0 left-0  bg-[#585858]/20 z-20 flex w-full h-28 px-10 sm:px-16 md:px-24 lg:px-28 2xl:px-36 3xl:px-48 py-10 items-center justify-between'>
       <Link to={'/'}>

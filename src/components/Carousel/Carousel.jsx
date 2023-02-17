@@ -15,13 +15,24 @@ const Carousel = ({ data, optionalText, optionalRedirect }) => {
         <div className='px-4 sm:px-10 md:px-16 lg:px-20 2xl:px-32 3xl:px-40'>
             <Swiper
                 slidesPerView={"auto"}
-                spaceBetween={30}
                 pagination={{
                     clickable: true,
+                    enabled: false
                 }}
                 modules={[Pagination]}
                 className=""
                 style={{ 'padding': '1.5rem' }}
+                breakpoints={{
+                    0: {
+                        spaceBetween: 30,
+                    },
+                    1536: {
+                        spaceBetween: 45,
+                    },
+                    1900: {
+                        spaceBetween: 55,
+                    },
+                }}
             >
                 {data.map((e) => {
                     return (

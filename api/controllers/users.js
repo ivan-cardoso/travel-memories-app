@@ -36,7 +36,8 @@ const signUp = async (req, res) => {
         const newUser = await User.create({
             "name": name,
             "email": email,
-            "password": hashedPassword
+            "password": hashedPassword,
+            "description" : req.body.description ? req.body.description : ""
         })
 
         const token = jwt.sign({ "email": newUser.email, "id": newUser._id }, 'TEST', { "expiresIn": "1h" })

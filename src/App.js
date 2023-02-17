@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 import useStorage from './hooks/useStorage'
 import { setCrendentials } from './store/reducers/user';
 import Footer from './components/Footer/Footer';
+import NavBar from './components/NavBar/NavBar';
 
 const App = () => {
 
@@ -24,7 +25,7 @@ const App = () => {
   return (
     <>
       <GoogleOAuthProvider clientId={'915610588755-stsi22gi8kntir2r0ninj75llh6g9a2a.apps.googleusercontent.com'}>
-
+        {/* <NavBar /> */}
         <Routes>
           <Route path={'/'} element={<Home />} />
           <Route path={'/register'} element={<Register />} />
